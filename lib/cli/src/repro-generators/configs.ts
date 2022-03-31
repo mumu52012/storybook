@@ -176,7 +176,7 @@ export const web_components_lit2: Parameters = {
 export const vue: Parameters = {
   framework: 'vue',
   name: 'vue',
-  // Be careful here, the latest versions of vue cli are bootstrapping a vue 3  project
+  // Be careful here, the latest versions of vue cli are bootstrapping a vue 3 project
   version: '4',
   generator: [
     // Force npm otherwise we have a mess between Yarn 1 and Yarn 2
@@ -187,11 +187,16 @@ export const vue: Parameters = {
 export const vue3: Parameters = {
   framework: 'vue3',
   name: 'vue3',
+  mainOverrides: {
+    core: {
+      builder: 'webpack5',
+    },
+  },
+  additionalDeps: ['@storybook/builder-webpack5'],
   version: 'next',
-  // Vue CLI v4 utilizes webpack 4, and the 5-alpha uses webpack 5 so we force ^4 here
   generator: [
     // Force npm otherwise we have a mess between Yarn 1 and Yarn 2
-    `npx -p @vue/cli@^4 vue create {{appName}} --preset=__default_vue_3__ --packageManager=npm --no-git --force`,
+    `npx -p @vue/cli vue create {{appName}} --preset=__default_vue_3__ --packageManager=npm --no-git --force`,
   ].join(' && '),
 };
 
