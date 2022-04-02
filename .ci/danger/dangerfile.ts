@@ -2,7 +2,7 @@ import { fail, danger } from 'danger';
 import { execSync } from 'child_process';
 
 execSync('npm install lodash');
-
+hhhh
 const flatten = require('lodash/flatten');
 const intersection = require('lodash/intersection');
 const isEmpty = require('lodash/isEmpty');
